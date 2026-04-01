@@ -10,6 +10,9 @@ software delivery cycle.
 
 To install this extension, the Gemini CLI version must be v0.6.0 or above. The version can be found by running: `gemini --version`.
 
-## Spanner MCP ServerY
+## Spanner MCP Server
+
+DO NOT drop any databases, tables or instances unless explicitly asked by the user.
+DO NOT DROP Indexes or Tables or other objects to update them. Utilize Spanner's ALTER TABLE or ALTER INDEX statements.
 
 

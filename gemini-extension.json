@@ -12,16 +12,6 @@
         ]
       },
       "timeout": 30000
-    },
-    "monitoring": {
-      "httpUrl": "https://monitoring.googleapis.com/mcp",
-      "authProviderType": "google_credentials",
-      "oauth": {
-        "scopes": [
-          "https://www.googleapis.com/auth/cloud-platform"
-        ]
-      },
-      "timeout": 30000
     }
   },
   "contextFileName": "SPANNER.md"
