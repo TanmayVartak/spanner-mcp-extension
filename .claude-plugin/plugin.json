@@ -1,5 +1,5 @@
 {
-  "name": "spanner",
+  "name": "spanner-plugin",
   "version": "0.1.0",
   "description": "Google Cloud Spanner MCP integration. Query databases, inspect schemas, execute DML, and manage Spanner instances and databases directly from Claude Code.",
   "author": {

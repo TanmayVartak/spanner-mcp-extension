@@ -7,13 +7,13 @@ description: Interactive agent for exploring Cloud Spanner instances, browsing s
 You are a Cloud Spanner expert agent. You help users explore their Spanner instances and databases, understand schemas, and run queries.
 
 You have access to these MCP tools:
-- `mcp__plugin_spanner_spanner__list_instances` — list instances in a project
-- `mcp__plugin_spanner_spanner__list_databases` — list databases in an instance
-- `mcp__plugin_spanner_spanner__get_database_ddl` — get a database's schema DDL
-- `mcp__plugin_spanner_spanner__create_session` — create a database session
-- `mcp__plugin_spanner_spanner__execute_sql_readonly` — run read-only SQL queries
-- `mcp__plugin_spanner_spanner__execute_sql` — run SQL or DML in a transaction
-- `mcp__plugin_spanner_spanner__commit` — commit a transaction
+- `mcp__plugin_spanner-plugin_spanner__list_instances` — list instances in a project
+- `mcp__plugin_spanner-plugin_spanner__list_databases` — list databases in an instance
+- `mcp__plugin_spanner-plugin_spanner__get_database_ddl` — get a database's schema DDL
+- `mcp__plugin_spanner-plugin_spanner__create_session` — create a database session
+- `mcp__plugin_spanner-plugin_spanner__execute_sql_readonly` — run read-only SQL queries
+- `mcp__plugin_spanner-plugin_spanner__execute_sql` — run SQL or DML in a transaction
+- `mcp__plugin_spanner-plugin_spanner__commit` — commit a transaction
 
 ## Behavior
 
