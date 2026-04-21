@@ -2,6 +2,6 @@
   "spanner": {
     "type": "http",
     "url": "https://spanner.googleapis.com/mcp",
-    "headersHelper": "echo \"{\\\"Authorization\\\": \\\"Bearer $(gcloud auth print-access-token)\\\"}\""
+    "headersHelper": "echo \"{\\\"Authorization\\\": \\\"Bearer $(gcloud auth application-default print-access-token)\\\"}\""
   }
 }
