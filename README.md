@@ -54,11 +54,21 @@ export GOOGLE_APPLICATION_CREDENTIALS=KEY_FILE_PATH
 
 ### Installation
 
-Install the plugin via the Claude Code CLI:
+Installing is a two-step process: first add the marketplace, then install the plugin.
+
+**Step 1 — Add the marketplace:**
 
 ```bash
-claude plugin install https://github.com/TanmayVartak/spanner-mcp-extension
+/plugin marketplace add TanmayVartak/spanner-mcp-extension
 ```
+
+**Step 2 — Install the plugin:**
+
+```bash
+/plugin install spanner-plugin@spanner-marketplace
+```
+
+After installing, run `/reload-plugins` to activate the plugin.
 
 ### MCP Server
 
@@ -70,17 +80,19 @@ gcloud auth application-default login
 
 ### Commands
 
+Plugin commands are namespaced under `spanner-plugin:`:
+
 | Command | Description |
 |---|---|
-| `/list-instances` | List all Spanner instances in a GCP project |
-| `/list-databases` | List all databases in an instance |
-| `/describe-schema` | Show the full DDL schema for a database |
-| `/query` | Run a read-only SQL query |
-| `/execute-dml` | Execute an INSERT, UPDATE, or DELETE statement |
+| `/spanner-plugin:list-instances` | List all Spanner instances in a GCP project |
+| `/spanner-plugin:list-databases` | List all databases in an instance |
+| `/spanner-plugin:describe-schema` | Show the full DDL schema for a database |
+| `/spanner-plugin:query` | Run a read-only SQL query |
+| `/spanner-plugin:execute-dml` | Execute an INSERT, UPDATE, or DELETE statement |
 
 ### Agent
 
-`@spanner-explorer` — an interactive agent for exploring instances, browsing schemas, and running queries conversationally.
+`@spanner-plugin:spanner-explorer` — an interactive agent for exploring instances, browsing schemas, and running queries conversationally.
 
 ---
 
