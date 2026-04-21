@@ -1,0 +1,18 @@
+{
+  "name": "spanner-marketplace",
+  "owner": {
+    "name": "Google Cloud",
+    "url": "https://github.com/TanmayVartak"
+  },
+  "metadata": {
+    "description": "Google Cloud Spanner plugins for Claude Code"
+  },
+  "plugins": [
+    {
+      "name": "spanner",
+      "version": "0.1.0",
+      "description": "Google Cloud Spanner MCP integration. Query databases, inspect schemas, execute DML, and manage Spanner instances and databases directly from Claude Code.",
+      "source": "./"
+    }
+  ]
+}
