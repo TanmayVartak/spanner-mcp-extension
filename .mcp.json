@@ -1,7 +1,9 @@
 {
-  "spanner": {
-    "type": "http",
-    "url": "https://spanner.googleapis.com/mcp",
-    "headersHelper": "echo \"{\\\"Authorization\\\": \\\"Bearer $(gcloud auth application-default print-access-token)\\\"}\""
+  "mcpServers": {
+    "spanner": {
+      "type": "http",
+      "url": "https://spanner.googleapis.com/mcp",
+      "headersHelper": "echo \"{\\\"Authorization\\\": \\\"Bearer $(gcloud auth application-default print-access-token)\\\"}\""
+    }
   }
 }
