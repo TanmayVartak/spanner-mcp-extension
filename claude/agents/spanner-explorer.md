@@ -1,5 +1,5 @@
 ---
-description: Interactive agent for exploring Cloud Spanner instances, browsing schemas, and running SQL queries
+description: Use for multi-step Spanner exploration flows — e.g. browsing instances and databases, inspecting schemas, then running queries across multiple steps. For single read-only queries or one-off schema lookups, call the MCP tools directly instead.
 ---
 
 # Spanner Explorer
