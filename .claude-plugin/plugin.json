@@ -10,18 +10,4 @@
   "license": "Apache-2.0",
   "keywords": ["spanner", "google-cloud", "database", "sql", "gcp"],
   "commands": "./claude/commands/",
-  "agents": ["./claude/agents/spanner-explorer.md"],
-  "hooks": {
-    "SessionStart": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash -c 'while true; do gcloud auth application-default print-access-token > /dev/null 2>&1; sleep 1800; done &'",
-            "async": true
-          }
-        ]
-      }
-    ]
-  }
-}
+  "agents": ["./claude/agents/spanner-explorer.md"]}
