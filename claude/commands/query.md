@@ -28,3 +28,5 @@ Always use parameterized queries. Extract all literal values (strings, numbers, 
 Advise the user against selecting more than 50 rows at a time. If the query has no LIMIT clause, suggest adding `LIMIT 50` and ask for confirmation before running without one.
 
 Display results as a formatted table. If the result set is large (>50 rows), summarize and show the first 20 rows.
+
+Apply the retry policy from `/spanner-plugin:mcp-retry-policy` for any authentication or authorization failures.

@@ -1,13 +1,13 @@
 # spanner-mcp-extension
 
-Google Cloud Spanner MCP integration for **Claude Code** and **Gemini CLI**. Query databases, inspect schemas, execute DML, and manage Spanner instances directly from your AI assistant.
+Google Cloud Spanner MCP integration for **Claude Code** and **Gemini CLI**. Inspect schemas, run read-only SQL queries, and execute DML directly from your AI assistant.
 
 ## Features
 
-- List Spanner instances and databases
 - Inspect full DDL schemas (tables, indexes, proto bundles, functions)
 - Run read-only SQL queries safely
 - Execute DML (INSERT, UPDATE, DELETE) with confirmation before commit
+- Automatic auth token refresh on session reconnect
 
 ---
 
@@ -84,8 +84,6 @@ Plugin commands are namespaced under `spanner-plugin:`:
 
 | Command | Description |
 |---|---|
-| `/spanner-plugin:list-instances` | List all Spanner instances in a GCP project |
-| `/spanner-plugin:list-databases` | List all databases in an instance |
 | `/spanner-plugin:describe-schema` | Show the full DDL schema for a database |
 | `/spanner-plugin:query` | Run a read-only SQL query |
 | `/spanner-plugin:execute-dml` | Execute an INSERT, UPDATE, or DELETE statement |
@@ -93,6 +91,22 @@ Plugin commands are namespaced under `spanner-plugin:`:
 ### Agent
 
 `@spanner-plugin:spanner-explorer` — an interactive agent for exploring instances, browsing schemas, and running queries conversationally.
+
+### Auth Token Refresh & Retry Policy
+
+The plugin fetches a fresh GCP auth token when the MCP connection is initialized. The token is cached in-memory for the lifetime of the connection (GCP access tokens expire after ~1 hour).
+
+**Auto-reconnect:** Claude Code automatically detects when the transport drops and reinitializes the connection, including fetching a fresh token via the `headersHelper`. No manual action is required in most cases.
+
+**Failure flow (e.g. after a long idle session):**
+1. A tool call is made with a stale cached token → auth failure
+2. Claude Code detects the dropped connection and triggers automatic reconnect
+3. The reconnect fetches a fresh token (OAuth fallback + `headersHelper`) — takes ~33 seconds
+4. The plugin's retry policy kicks in: waits 35 seconds, retries the original tool call
+5. If the retry fails, waits 10 more seconds and tries one final time
+6. On success the session continues normally; the transient error is not surfaced to the user
+
+To manually force a token refresh at any time, run `/mcp reconnect`.
 
 ---
 

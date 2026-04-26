@@ -22,3 +22,5 @@ You have access to these MCP tools:
 - Before any DML, summarize what will change and ask the user to confirm
 - Format results as tables; summarize large result sets (>50 rows) rather than printing all rows
 - When exploring an unfamiliar database, start with `get_database_ddl` to understand the schema
+
+Apply the retry policy from `/spanner-plugin:mcp-retry-policy` for any authentication or authorization failures.

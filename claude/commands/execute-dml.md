@@ -22,3 +22,5 @@ Always use parameterized queries. Extract all literal values (strings, numbers, 
 - PostgreSQL: positional parameters (`$1`, `$2`, ...)
 
 Report the number of rows affected.
+
+Apply the retry policy from `/spanner-plugin:mcp-retry-policy` for any authentication or authorization failures.

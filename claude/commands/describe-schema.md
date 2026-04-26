@@ -13,3 +13,5 @@ Present a structured summary:
 - List any secondary indexes
 - List any custom schemas, proto bundles, or user-defined functions
 - Show row deletion policies if present
+
+Apply the retry policy from `/spanner-plugin:mcp-retry-policy` for any authentication or authorization failures.
